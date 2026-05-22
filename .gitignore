@@ -1,0 +1,6 @@
+core/vendor/
+core/cache/*
+!core/cache/.gitkeep
+public/*
+!public/.gitkeep
+.DS_Store

@@ -1,0 +1,7 @@
+vendor/
+cache/
+.git/
+.gitignore
+*.md
+LICENSE
+phpunit.xml
