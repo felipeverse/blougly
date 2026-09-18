@@ -11,5 +11,5 @@ indent_size = 4
 [*.yml]
 indent_size = 4
 
-[Makefile]
+[{Makefile,makefile}]
 indent_style = tab

@@ -1,0 +1,45 @@
+{
+    "name": "felipeverse/blougly",
+    "description": "Blougly: an ugly static site generator that gets out of your way",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Felipe Alves (felipeverse)",
+            "email": "felipealvesrrodrigues@outlook.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=8.3",
+        "illuminate/view": "~11.7.0",
+        "jenssegers/blade": "^2.0",
+        "league/commonmark": "^2.8",
+        "php-di/php-di": "^7.1",
+        "symfony/yaml": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blougly\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Blougly\\Tests\\": "tests/",
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "coverage": "pest --coverage-html coverage/",
+        "serve": "php -S 0.0.0.0:8081 -t public ./bin/serve.php",
+        "build": "php ./bin/console.php"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.7"
+    }
+}
