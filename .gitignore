@@ -1,6 +1,9 @@
-core/vendor/
-core/cache/*
-!core/cache/.gitkeep
-public/*
-!public/.gitkeep
+vendor/
+coverage/
+pest_debug.log
+pest_err.log
+source/
+public/
+docs/
 .DS_Store
+.vscode/
