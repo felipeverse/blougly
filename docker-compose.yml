@@ -1,0 +1,15 @@
+services:
+    blougly:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        init: true
+        volumes:
+            - .:/blougly
+        working_dir: /blougly
+        command: php bin/console.php
+        container_name: blougly
+        environment:
+            XDEBUG_CONFIG: "client_host=host.docker.internal client_port=9003"
+        extra_hosts:
+            - "host.docker.internal:host-gateway"

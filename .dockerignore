@@ -1,0 +1,12 @@
+vendor/
+cache/
+.git/
+.gitignore
+*.md
+LICENSE
+phpunit.xml
+source/
+public/
+docs/
+.devcontainer/
+.vscode/
