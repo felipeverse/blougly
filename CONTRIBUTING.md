@@ -13,7 +13,7 @@ type(scope): subject
 ```
 
 - **Types:** `feat`, `fix`, `refactor`, `perf`, `test`, `docs`, `chore`, `build`, `ci`, `style`
-- **Scopes (optional)** mirror the architecture layers — `domain`, `ports`, `application`, `adapters` — plus `docker` and `ci` for infrastructure
+- **Scopes (optional)** mirror the architecture layers — `domain`, `ports`, `application`, `adapters`, `cli` — plus `docker` and `ci` for infrastructure
 - **Subject:** imperative mood, lowercase after the prefix, no trailing period, 72 characters max, in English
 - **Breaking changes:** `!` before the colon (`feat(domain)!:`) plus a `BREAKING CHANGE:` footer describing the migration
 
