@@ -7,14 +7,14 @@ WORKDIR /blougly
 # Stage: production
 FROM base AS production
 COPY composer.json composer.lock* ./
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh                                                                                                               
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["php", "bin/console.php"]
 
 # Stage: dev
 FROM base AS dev
-RUN apk add --no-cache git bash zsh 
+RUN apk add --no-cache git bash zsh
 RUN apk add --no-cache $PHPIZE_DEPS linux-headers \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
@@ -26,6 +26,15 @@ RUN apk add --no-cache $PHPIZE_DEPS linux-headers \
         echo "xdebug.client_port=9003"; \
         echo "xdebug.idekey=VSCODE"; \
     } >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-ENV COMPOSER_HOME=/root/.composer
+
+ARG GID=1000
+ARG UID=1000
+
+RUN addgroup -g ${GID} blougly \
+    && adduser -D -u ${UID} -G blougly -h /home/blougly blougly
+
+ENV COMPOSER_HOME=/home/blougly/.composer
+USER blougly
 RUN composer global require squizlabs/php_codesniffer --no-interaction
+
 WORKDIR /blougly

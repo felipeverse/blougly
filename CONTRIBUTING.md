@@ -50,3 +50,18 @@ docker compose build
 ```
 
 Or open the repository in VS Code — the `.devcontainer/` configuration prepares PHP, Xdebug and the recommended extensions.
+
+Run `make help` to list the available targets.
+
+The Compose service and the devcontainer both run as a non-root user carrying your host `UID`/`GID`, so anything they write stays writable on the host. If yours are not `1000`, put them in a `.env` in the repository root — it is git-ignored — and rebuild:
+
+```env
+UID=1001
+GID=1001
+```
+
+```bash
+make docker-build
+```
+
+If `git` fails with `insufficient permission for adding an object to repository database`, a container left root-owned files behind. `make check-owner` finds them and prints the repair command.
