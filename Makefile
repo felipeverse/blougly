@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help build clean docker-build serve check-owner
+.PHONY: help build clean docker-build serve test check-owner
 
 PORT ?= 8080
 
@@ -14,6 +14,9 @@ clean: ## Remove the generated public/ output
 
 docker-build: ## Rebuild the container image
 	docker compose build
+
+test: ## Run the test suite (installs dev dependencies first)
+	docker compose run --rm blougly sh -c 'composer install --quiet --no-scripts --prefer-dist --no-progress && vendor/bin/pest'
 
 serve: ## Serve the site locally
 	docker compose run --rm -p $(PORT):$(PORT) blougly php -S 0.0.0.0:$(PORT) -t /blougly/public /blougly/bin/serve.php
