@@ -88,7 +88,8 @@ final class ContentPage implements Page, HasPublicationDate, Draftable, Taggable
     ): OutputPath {
         $pathParts = [];
 
-        $directory = rtrim(self::slugifyPath(dirname($sourceLocation->relativePath)), '/');
+        $directory = self::slugifyPath(dirname($sourceLocation->relativePath));
+
         if ($directory !== '') {
             $pathParts[] = $directory;
         }
@@ -112,8 +113,12 @@ final class ContentPage implements Page, HasPublicationDate, Draftable, Taggable
 
     private static function slugifyPath(string $path): string
     {
-        $segments = explode('/', $path);
-        $segments = array_map(Slug::fromText(...), $segments);
+        if ($path === '.') {
+            return '';
+        }
+
+        $segments = array_map(Slug::fromText(...), explode('/', $path));
+
         return implode('/', $segments);
     }
 
