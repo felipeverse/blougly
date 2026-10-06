@@ -2,9 +2,9 @@ vendor/
 coverage/
 pest_debug.log
 pest_err.log
-source/
-public/
-docs/
+/source/
+/public/
+/docs/
 .DS_Store
 .vscode/
 .env
