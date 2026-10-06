@@ -1,0 +1,8 @@
+{
+    "name": "Fixture Site",
+    "url": "https://example.com",
+    "description": "A fixture site for the golden master test.",
+    "languages": [
+        "en-US"
+    ]
+}
