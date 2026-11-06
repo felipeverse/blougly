@@ -24,7 +24,7 @@ it('builds the fixture site identically to the expected output', function () {
     }
 
     if (!is_dir($expectedDir)) {
-        $this->fail('Missing expected tree at ' . $expectedDir . '. Regenerate it with: make expected');
+        $this->fail('Missing expected tree at ' . $expectedDir . '. Regenerate it with: make test-regenerate-expected');
     }
 
     $expectedFiles = $this->listFiles($expectedDir);
