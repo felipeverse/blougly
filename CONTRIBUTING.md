@@ -46,8 +46,8 @@ vendor/bin/pest
 The golden master test compares the fixture build against `tests/fixtures/expected/`. The test never writes that tree on its own: when it is missing, the test fails. To update it after an intentional output change, regenerate explicitly and review the diff before committing:
 
 ```bash
-make expected                  # Docker
-UPDATE_EXPECTED=1 vendor/bin/pest   # local
+make test-regenerate-expected                  # Docker
+UPDATE_EXPECTED=1 vendor/bin/pest tests/Integration   # local
 ```
 
 Prefer a containerized environment? The repo ships a Docker Compose setup and a devcontainer:
