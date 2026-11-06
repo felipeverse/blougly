@@ -66,11 +66,17 @@ abstract class TestCase extends BaseTestCase
 
     protected function copyDirectory(string $source, string $destination): void
     {
-        mkdir($destination, 0777, true);
+        if (!is_dir($destination)) {
+            mkdir($destination, 0777, true);
+        }
 
         foreach ($this->listFiles($source) as $file) {
             $target = $destination . '/' . $file;
-            mkdir(dirname($target), 0777, true);
+
+            if (!is_dir(dirname($target))) {
+                mkdir(dirname($target), 0777, true);
+            }
+
             copy($source . '/' . $file, $target);
         }
     }

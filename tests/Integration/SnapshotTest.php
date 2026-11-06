@@ -13,10 +13,18 @@ it('builds the fixture site identically to the expected output', function () {
 
     $expectedDir = $this->expectedPath();
 
-    if (!is_dir($expectedDir)) {
+    if (getenv('UPDATE_EXPECTED')) {
+        if (is_dir($expectedDir)) {
+            $this->removeDirectory($expectedDir);
+        }
+
         $this->copyDirectory($this->tempDir, $expectedDir);
 
-        $this->markTestSkipped('Expected tree generated at ' . $expectedDir . '. Run again to verify.');
+        $this->markTestSkipped('Expected tree regenerated at ' . $expectedDir . '. Run again to verify.');
+    }
+
+    if (!is_dir($expectedDir)) {
+        $this->fail('Missing expected tree at ' . $expectedDir . '. Regenerate it with: make test-regenerate-expected');
     }
 
     $expectedFiles = $this->listFiles($expectedDir);

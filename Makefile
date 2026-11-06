@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help build clean docker-build serve test check-owner
+.PHONY: help build clean docker-build serve test expected check-owner
 
 PORT ?= 8080
 
@@ -17,6 +17,9 @@ docker-build: ## Rebuild the container image
 
 test: ## Run the test suite (installs dev dependencies first)
 	docker compose run --rm blougly sh -c 'composer install --quiet --no-scripts --prefer-dist --no-progress && vendor/bin/pest'
+
+test-regenerate-expected: ## Regenerate the golden master expected tree
+	docker compose run --rm -e UPDATE_EXPECTED=1 blougly vendor/bin/pest tests/Integration
 
 serve: ## Serve the site locally
 	docker compose run --rm -p $(PORT):$(PORT) blougly php -S 0.0.0.0:$(PORT) -t /blougly/public /blougly/bin/serve.php
