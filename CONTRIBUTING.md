@@ -27,6 +27,12 @@ chore(docker): pin php version in the dev image
 
 CI validates the commit message format on pull requests.
 
+## Pull requests
+
+- Keep each PR focused on one logical change.
+- Merge with **squash**: one PR becomes one conventional commit, and the commit message is the PR title. This is the granularity the release automation reads.
+- Releases are automated: work merged into `main` feeds a release pull request that updates `CHANGELOG.md`, bumps the version, and creates the tag and the GitHub Release. To force a specific version, add a `Release-As: x.y.z` footer to the pull request body.
+
 ## Development setup
 
 Requirements: PHP 8.3+ and Composer — or Docker.
