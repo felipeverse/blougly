@@ -43,5 +43,7 @@
     "require-dev": {
         "pestphp/pest": "^4.7"
     },
-    "bin": ["bin/console.php"]
+    "bin": [
+        "bin/console.php"
+    ]
 }
