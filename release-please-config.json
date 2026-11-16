@@ -11,6 +11,8 @@
         { "type": "revert", "section": "Reverts" }
     ],
     "packages": {
-        ".": {}
+        ".": {
+            "initial-version": "0.1.0"
+        }
     }
 }
