@@ -5,7 +5,15 @@ use Blougly\Application\BuildPaths;
 use Blougly\Bootstrap\Container;
 use Blougly\Ports\Inbound\SiteBuilder;
 
-require __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/locate-autoloader.php';
+
+$autoload = locateAutoloader(autoloaderCandidates(__DIR__));
+
+if ($autoload === null) {
+    consoleError('Unable to locate the Composer autoloader. Run "composer install" or reinstall the package');
+}
+
+require $autoload;
 include __DIR__ . '/../src/helpers.php';
 
 /**
