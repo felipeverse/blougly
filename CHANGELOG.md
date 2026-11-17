@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/felipeverse/blougly/compare/v0.1.0...v0.1.1) (2026-11-17)
+
+
+### Bug Fixes
+
+* **cli:** resolve autoloader across repo and installed layouts ([#15](https://github.com/felipeverse/blougly/issues/15)) ([61b44a7](https://github.com/felipeverse/blougly/commit/61b44a7dd9a96b3f570c9c1e7b446df8c42bf057))
+
 ## 0.1.0 (2026-11-16)
 
 
