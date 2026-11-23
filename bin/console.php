@@ -7,7 +7,7 @@ use Blougly\Ports\Inbound\SiteBuilder;
 
 require_once __DIR__ . '/locate-autoloader.php';
 
-$autoload = locateAutoloader(autoloaderCandidates(__DIR__));
+$autoload = locateAutoloader(__DIR__);
 
 if ($autoload === null) {
     consoleError('Unable to locate the Composer autoloader. Run "composer install" or reinstall the package');
