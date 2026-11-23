@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/felipeverse/blougly/compare/v0.1.1...v0.1.2) (2026-11-23)
+
+
+### Bug Fixes
+
+* **cli:** gate autoloader resolution to the detected layout ([#17](https://github.com/felipeverse/blougly/issues/17)) ([7199a61](https://github.com/felipeverse/blougly/commit/7199a61ca449ecfa4d2bab750e52408f4b4c3682))
+
 ## [0.1.1](https://github.com/felipeverse/blougly/compare/v0.1.0...v0.1.1) (2026-11-17)
 
 
